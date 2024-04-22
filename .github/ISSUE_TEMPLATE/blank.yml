@@ -8,11 +8,3 @@ body:
       label: Content
     validations:
       required: true
-
-  - type: checkboxes
-    id: agreement-check
-    attributes:
-      label: Request Agreement
-      options:
-        - label: I have read the requirements for opening an issue above
-          required: true
