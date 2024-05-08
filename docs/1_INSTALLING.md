@@ -20,7 +20,7 @@ Welcome to Megu's Installation Guide! In this file, you will learn about how to 
 -   Install Git from https://git-scm.com/download
 -   Install Node.JS LTS from here: https://nodejs.dev/en/
 
-## Installing Vencord
+## Installing Vencord Web
 
 Install `pnpm`:
 
@@ -35,23 +35,60 @@ npm i -g pnpm
 Clone Vencord:
 
 ```shell
-git clone https://github.com/Vendicated/Vencord
-cd Vencord
+git clone https://github.com/loadstring1/Vencord-Compiled/
+cd vencord-compiled
 ```
 
-Update pnpm if it says that its not latest version:
+Update pnpm:
 ```shell
 pnpm upd
 ```
-> :exclamation: **IMPORTANT** Make sure you update your pnpm if its outdated with this command otherwise vencord won't build web version.
+> :exclamation: **IMPORTANT** Make sure you update your pnpm if its outdated with this command otherwise you won't be able to install dependencies. You must be in vencord-compiled directory in order for this to work.
 
-Install dependencies:
+Install dependencies (you can skip this step and head over to building vencord):
 
 ```shell
 pnpm install --frozen-lockfile
 ```
 
-Build Vencord:
+Build Vencord Web:
+
+```shell
+pnpm buildWeb
+```
+
+## Installing Vesktop
+
+Install `pnpm`:
+
+> :exclamation: This next command may need to be run as admin/root depending on your system, and you may need to close and reopen your terminal for pnpm to be in your PATH.
+
+```shell
+npm i -g pnpm
+```
+
+> :exclamation: **IMPORTANT** Make sure you aren't using an admin/root terminal from here onwards. It **will** mess up your Discord/Vencord instance and you **will** most likely have to reinstall.
+
+Clone Vencord:
+
+```shell
+git clone https://github.com/loadstring1/Vencord-Compiled/
+cd vencord-compiled
+```
+
+Update pnpm:
+```shell
+pnpm upd
+```
+> :exclamation: **IMPORTANT** Make sure you update your pnpm if its outdated with this command otherwise you won't be able to install dependencies. You must be in vencord-compiled directory in order for this to work.
+
+Install dependencies (you can skip this step and head over to building vencord):
+
+```shell
+pnpm install --frozen-lockfile
+```
+
+Build Vesktop:
 
 ```shell
 pnpm build
