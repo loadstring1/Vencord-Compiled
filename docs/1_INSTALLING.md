@@ -35,8 +35,7 @@ npm i -g pnpm
 Clone Vencord:
 
 ```shell
-git clone https://github.com/loadstring1/Vencord-Compiled/
-cd vencord-compiled
+git clone https://github.com/loadstring1/Vencord-Compiled/ && cd vencord-compiled
 ```
 
 Update pnpm:
