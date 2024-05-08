@@ -39,6 +39,12 @@ git clone https://github.com/Vendicated/Vencord
 cd Vencord
 ```
 
+Update pnpm if it says that its not latest version:
+```shell
+pnpm upd
+```
+> :exclamation: **IMPORTANT** Make sure you update your pnpm if its outdated with this command otherwise vencord won't build web version.
+
 Install dependencies:
 
 ```shell
