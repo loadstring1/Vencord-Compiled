@@ -57,6 +57,9 @@ Build Vencord Web:
 pnpm buildWeb
 ```
 
+
+
+
 ## Installing Vesktop
 
 Install `pnpm`:
