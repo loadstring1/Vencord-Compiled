@@ -11,7 +11,7 @@ Welcome to Megu's Installation Guide! In this file, you will learn about how to 
 - [Installation Guide](#installation-guide)
   - [Sections](#sections)
   - [Dependencies](#dependencies)
-  - [Installing Vencord](#installing-vencord)
+  - [Installing Vencord Web](#installing-vencord-web)
   - [Updating Vencord](#updating-vencord)
   - [Uninstalling Vencord](#uninstalling-vencord)
 
