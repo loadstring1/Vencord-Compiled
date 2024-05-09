@@ -108,68 +108,6 @@ ${makeCodeblock(enabledPlugins.join(", "))}
         }
     }],
 
-    flux: {
-        async CHANNEL_SELECT({ channelId }) {
-            if (channelId !== SUPPORT_CHANNEL_ID) return;
-
-            const selfId = UserStore.getCurrentUser()?.id;
-            if (!selfId || isPluginDev(selfId)) return;
-
-            if (isOutdated) {
-                return Alerts.show({
-                    title: "Hold on!",
-                    body: <div>
-                        <Forms.FormText>You are using an outdated version of Vencord! Chances are, your issue is already fixed.</Forms.FormText>
-                        <Forms.FormText className={Margins.top8}>
-                            Please first update before asking for support!
-                        </Forms.FormText>
-                    </div>,
-                    onCancel: () => openUpdaterModal!(),
-                    cancelText: "View Updates",
-                    confirmText: "Update & Restart Now",
-                    async onConfirm() {
-                        await update();
-                        relaunch();
-                    },
-                    secondaryConfirmText: "I know what I'm doing or I can't update"
-                });
-            }
-
-            // @ts-ignore outdated type
-            const roles = GuildMemberStore.getSelfMember(VENCORD_GUILD_ID)?.roles;
-            if (!roles || TrustedRolesIds.some(id => roles.includes(id))) return;
-
-            if (IS_UPDATER_DISABLED) {
-                return Alerts.show({
-                    title: "Hold on!",
-                    body: <div>
-                        <Forms.FormText>You are using an externally updated Vencord version, which we do not provide support for!</Forms.FormText>
-                        <Forms.FormText className={Margins.top8}>
-                            Please either switch to an <Link href="https://vencord.dev/download">officially supported version of Vencord</Link>, or
-                            contact your package maintainer for support instead.
-                        </Forms.FormText>
-                    </div>,
-                    onCloseCallback: () => setTimeout(() => NavigationRouter.back(), 50)
-                });
-            }
-
-            const repo = await VencordNative.updater.getRepo();
-            if (repo.ok && !repo.value.includes("Vendicated/Vencord")) {
-                return Alerts.show({
-                    title: "Hold on!",
-                    body: <div>
-                        <Forms.FormText>You are using a fork of Vencord, which we do not provide support for!</Forms.FormText>
-                        <Forms.FormText className={Margins.top8}>
-                            Please either switch to an <Link href="https://vencord.dev/download">officially supported version of Vencord</Link>, or
-                            contact your package maintainer for support instead.
-                        </Forms.FormText>
-                    </div>,
-                    onCloseCallback: () => setTimeout(() => NavigationRouter.back(), 50)
-                });
-            }
-        }
-    },
-
     ContributorDmWarningCard: ErrorBoundary.wrap(({ userId }) => {
         if (!isPluginDev(userId)) return null;
         if (RelationshipStore.isFriend(userId)) return null;
